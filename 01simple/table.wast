@@ -6,7 +6,7 @@
     i32.const 13)
      (type $none_=>_i32 (func (result i32)))
     (elem (i32.const 0) $f1 $f2)
-    (func (export "add") (param $i i32) (result i32)
+    (func (export "main") (param $i i32) (result i32)
     local.get $i
     call_indirect $table1 (type $none_=>_i32))
 )

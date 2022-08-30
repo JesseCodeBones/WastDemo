@@ -22,7 +22,6 @@ Object.assign(imports.env, {
 });
 
 WebAssembly.instantiate(wasmBuffer, imports).then(wasmModule => {
-    const { add } = wasmModule.instance.exports;
-    const sum = add(0);
-    console.log(sum);
+    const { main } = wasmModule.instance.exports;
+    main(0);
 });
