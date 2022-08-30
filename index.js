@@ -55,19 +55,24 @@ async function compile(filePath) {
 
 async function run(filePath){
     let fileName = path.basename(filePath);
-    let cmd = `node run.cjs path=target/${fileName}.wasm`;
-    return new Promise(resolve=>{
-        exec(cmd, (error, stdout, stderr) => {
-            if (error) {
-                console.log(`error: ${error.message}`);
-            }
-            if (stderr) {
-                console.log(`stderr: ${stderr}`);
-            }
-            console.log(`run wasm - stdout: ${stdout}`);
-            resolve("finished");
+    if(fs.existsSync(`target/${fileName}.wasm`)) {
+        let cmd = `node run.cjs path=target/${fileName}.wasm`;
+        return new Promise(resolve=>{
+            exec(cmd, (error, stdout, stderr) => {
+                if (error) {
+                    console.log(`error: ${error.message}`);
+                }
+                if (stderr) {
+                    console.log(`stderr: ${stderr}`);
+                }
+                console.log(`run wasm - stdout: ${stdout}`);
+                resolve("finished");
+            });
         });
-    });
+    } else {
+        return;
+    }
+    
 }
 
 async function build(){
