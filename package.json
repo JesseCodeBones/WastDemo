@@ -1,0 +1,19 @@
+{
+  "name": "wastdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "wast": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JesseCodeBones/WastDemo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JesseCodeBones/WastDemo/issues"
+  },
+  "homepage": "https://github.com/JesseCodeBones/WastDemo#readme"
+}
