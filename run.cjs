@@ -18,6 +18,16 @@ Object.assign(imports.env, {
         var bytes = new Uint8Array(memory.buffer, offset, length);
         var string = new TextDecoder('utf8').decode(bytes);
         console.log(string);
+    },
+    printString(offset) {
+        let bytes = new Array();
+        let memBuffer = new Uint8Array(memory.buffer);
+        while(memBuffer[offset] != 0) {
+            bytes.push(memBuffer[offset]);
+            offset++;
+        }
+        let string =  new TextDecoder('utf8').decode(Uint8Array.from(bytes));
+        console.log(string);
     }
 });
 
