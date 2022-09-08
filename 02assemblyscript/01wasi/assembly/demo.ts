@@ -16,7 +16,7 @@ export function _start(): void {
     let rcstr = "";
     let rc = fd_write(1, changetype<usize>(iovInstance), 1, changetype<usize>(str));
     //log rc
-    rcstr += rc.toString();
+    rcstr += "console write rc = " + rc.toString();
     logString(changetype<usize>(rcstr), rcstr.length);
 
     //open path
@@ -28,8 +28,8 @@ export function _start(): void {
         changetype<usize>(path),
         path.byteLength,
         1 | 8,
-        1024 | 64 | 32 || 4,
-        1024 | 64 | 32 || 4,
+        1024 | 64 | 32 | 4, // needed permission options
+        1024 | 64 | 32 | 4,
         16,
         fdPtr);
     rcstr = "new FD is:" + i32.load(fdPtr).toString() + ", with ptr=" + fdPtr.toString();
