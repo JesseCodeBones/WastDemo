@@ -1,0 +1,22 @@
+{
+  "name": "wasi-demo",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "runWasi":"npm run asbuild && node --experimental-wasi-unstable-preview1 run.js",
+    "asbuild:debug": "asc assembly/demo.ts --target debug ",
+    "asbuild:release": "asc assembly/demo.ts --target release ",
+    "asbuild": "npm run asbuild:debug && npm run asbuild:release"
+  },
+  "devDependencies": {
+    "assemblyscript": "0.21.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wasmer/wasi": "^1.1.2"
+  }
+}

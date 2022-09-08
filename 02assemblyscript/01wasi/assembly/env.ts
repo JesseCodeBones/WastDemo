@@ -1,0 +1,1 @@
+export declare function logString(ptr: usize, l: i32): void
