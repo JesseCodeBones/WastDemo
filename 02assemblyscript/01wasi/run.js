@@ -33,8 +33,7 @@ WebAssembly.instantiate(wasm, {
     const { memory} = instance.exports;
     sharedMemory = memory;
     wasiInstance = instance;
-  });
-setTimeout(() => {
     wasi.start(wasiInstance);
-}, 2000);
+  });
+
 
