@@ -3,7 +3,7 @@ export declare function fd_write(
     iov_array_ptr: usize,
     iov_array_length: u32,
     nwritten: usize,
-    ): i32;
+): i32;
 
 export declare function path_open(
     dirfd: u32,
@@ -16,3 +16,5 @@ export declare function path_open(
     fs_flags: u32,
     fd: isize
 ): i32;
+
+export declare function fd_close(fd: i32): i32;

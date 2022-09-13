@@ -1,4 +1,4 @@
-import { fd_write, path_open } from "./wasi_snapshot_preview1"
+import { fd_write, path_open, fd_close } from "./wasi_snapshot_preview1"
 import { logString } from "./env"
 var content = "hello world\n"; // the content which will be written in the target test file.
 var contentUtf8 = String.UTF8.encode(content);
@@ -44,6 +44,9 @@ export function _start(): void {
         changetype<usize>(writeSize));
     rcstr = "fd_write return code is:" + rc.toString();
     logString(changetype<usize>(rcstr), rcstr.length);
-    // clean memory after execution
+    // close fd and clean memory after execution
+    rc = fd_close(i32.load(fdPtr));
+    rcstr = "fd_close return code is:" + rc.toString();
+    logString(changetype<usize>(rcstr), rcstr.length);
     __free(fdPtr);
 }
