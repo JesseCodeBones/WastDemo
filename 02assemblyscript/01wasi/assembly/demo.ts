@@ -37,16 +37,17 @@ export function _start(): void {
     rcstr = "path_open return code is:" + rc.toString();
     logString(changetype<usize>(rcstr), rcstr.length);
 
-    let writeSize = __alloc(sizeof<i32>());
+    let writeSizePtr = __alloc(sizeof<i32>());
     rc = fd_write(i32.load(fdPtr),
         changetype<usize>(iovInstance),
         1,
-        changetype<usize>(writeSize));
+        writeSizePtr);
     rcstr = "fd_write return code is:" + rc.toString();
     logString(changetype<usize>(rcstr), rcstr.length);
     // close fd and clean memory after execution
     rc = fd_close(i32.load(fdPtr));
     rcstr = "fd_close return code is:" + rc.toString();
     logString(changetype<usize>(rcstr), rcstr.length);
+    __free(writeSizePtr);
     __free(fdPtr);
 }
