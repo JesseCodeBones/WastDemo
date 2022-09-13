@@ -22,7 +22,7 @@ export function _start(): void {
     //open path
     let pathstr = "./test.txt";
     var path = String.UTF8.encode(pathstr);
-    let fdPtr = __alloc(4); // alloc a position for fd.
+    let fdPtr = __alloc(sizeof<i32>()); // alloc a position for fd.
     rc = path_open(3, // sandbox fd is 3 in UVWASI
         3,
         changetype<usize>(path),
@@ -37,7 +37,7 @@ export function _start(): void {
     rcstr = "path_open return code is:" + rc.toString();
     logString(changetype<usize>(rcstr), rcstr.length);
 
-    let writeSize = 0;
+    let writeSize = __alloc(sizeof<i32>());
     rc = fd_write(i32.load(fdPtr),
         changetype<usize>(iovInstance),
         1,
