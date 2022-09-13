@@ -14,7 +14,7 @@ export declare function path_open(
     fs_rights_base: u64,
     fs_rights_inheriting: u64,
     fs_flags: u32,
-    fd: i32
+    fd: u32
 ): i32;
 
-export declare function fd_close(fd: i32): i32;
+export declare function fd_close(fd: u32): i32;
