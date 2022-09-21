@@ -1,0 +1,19 @@
+{
+  "name": "02envfun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "full":"npm run asbuild && node index.js",
+    "asbuild": "asc assembly/index.ts --target debug"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.21.3"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.21.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
