@@ -33,5 +33,6 @@ Object.assign(imports.env, {
 
 WebAssembly.instantiate(wasmBuffer, imports).then(wasmModule => {
     const { main } = wasmModule.instance.exports;
-    main(1);
+    let result = main(1);
+    console.log(`result = ${result}`);
 });
